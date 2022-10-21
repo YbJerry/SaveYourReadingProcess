@@ -1,7 +1,6 @@
-/.eslintrc.js
 /.parcel-cache
-/.parcelrc
 /.vscode
 /dist
 /node_modules
 /yarn-error.log
+dist.zip

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
 import { Card, Button } from "antd"
-import Utils, { ReadingProcess } from "../utils";
+import Utils from "../utils";
 import 'antd/dist/antd.css';
 import { tabs, storage } from "webextension-polyfill";
 
