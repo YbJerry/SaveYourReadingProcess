@@ -1,0 +1,46 @@
+{
+    "manifest_version": 2,
+    "name": "Save your reading process",
+    "version": "1.0",
+    "description": "Save your reading process",
+    "background": {
+        "scripts": ["background.ts"]
+    },
+    "sidebar_action": {
+        "default_panel": "sidebar/sidebar.html",
+        "default_title": "Save your reading process"
+    },
+    "browser_action": {
+        "default_title": "Save your reading process",
+        "default_popup": "sidebar/sidebar.html"
+    },
+    "page_action": {
+        "browser_style": true,
+        "default_icon": "../icons/page_action_icon.svg",
+        "show_matches": [
+            "<all_urls>"
+        ],
+        "default_title": "Save your reading process",
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "contents/updateReadingProcess.ts"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "saveyourreadingprocess@ybjerry.wang"
+        }
+    }
+}
