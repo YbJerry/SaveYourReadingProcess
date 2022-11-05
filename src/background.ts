@@ -3,8 +3,8 @@ import {tabs} from "webextension-polyfill";
 
 tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     console.log("tab updated", tabId, changeInfo, tab);
-    let url;
-    let processTitle;
+    let url: string | undefined;
+    let processTitle: string | undefined;
     if(changeInfo.url !== undefined && changeInfo.title !== undefined) {
         url = changeInfo.url;
         processTitle = changeInfo.title;
@@ -21,10 +21,10 @@ tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     }
     console.debug("url changed: ", url)
     console.debug("title changed: ", processTitle)
-    const readingProcess = await Utils.getReadingProcess(url);
+    const readingProcess = await Utils.getReadingProcess(url!);
     if(readingProcess !== null) {
-        readingProcess.url = url;
-        readingProcess.processTitle = processTitle;
+        readingProcess.url = url!;
+        readingProcess.processTitle = processTitle!;
         await Utils.setReadingProcess(readingProcess.urlPrefix, readingProcess);
     }
 });

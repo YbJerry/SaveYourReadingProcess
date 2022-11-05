@@ -1,38 +1,62 @@
-import {tabs} from "webextension-polyfill";
-import * as React from "react";
-import { createRoot } from "react-dom/client";
-import { Button, Form, Input } from "antd"
+import { tabs } from "webextension-polyfill";
+// import * as React from "react";
+// import { createRoot } from "react-dom/client";
+// import { Button, Form, Input } from "antd"
 import Utils, { ReadingProcess } from "../utils";
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
+import { render } from "solid-js/web";
+import "./popup.css";
 
 let urlPrefix: string;
 let url: string;
 let title: string;
-
-const root = createRoot(document.getElementById("root")!);
 
 init();
 
 async function init() {
     const tab = await tabs.query({ currentWindow: true, active: true }).then((tabs) => tabs[0]);
     url = tab.url!;
-    urlPrefix = url.substring(0, url.lastIndexOf("/")+1);
+    urlPrefix = url.substring(0, url.lastIndexOf("/") + 1);
     title = tab.title!;
 
-    root.render(<AddReadingProcess />);
+    render(() => <AddReadingProcess />, document.getElementById("root")!);
 }
 
 function AddReadingProcess() {
-    const onFinish = async (values: ReadingProcess) => {
+    const onFinish = async () => {
         console.log("popup onfinish")
-        values.processTitle = values.title;
-        await Utils.setReadingProcess(urlPrefix, values);
+        const readingProcess: ReadingProcess = {
+            urlPrefix: urlPrefix,
+            title: title,
+            url: url,
+            processTitle: title
+        };
+        await Utils.setReadingProcess(urlPrefix, readingProcess);
         window.close();
     };
 
     return (
-        <div>
-            <Form
+        <div class="w-96">
+            <form class="flex-col">
+                <div class="mb-4">
+                    <label for="urlPrefix">URL Prefix</label>
+                    <input class="flex-row" type="text" id="urlPrefix" value={urlPrefix} required/>
+                </div>
+
+                <div class="mb-4">
+                    <label for="url">URL</label>
+                    <input type="text" id="url" name="url" value={url} required/>
+                </div>
+
+                <div class="mb-4">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" value={title} required/>
+                </div>
+
+                <button class="btn" type="submit" onClick={onFinish}>Submit</button>
+            </form>
+
+            {/* <Form
                 name="Add Reading Process"
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
@@ -64,7 +88,7 @@ function AddReadingProcess() {
                 <Form.Item>
                     <Button type="primary" htmlType="submit">Add</Button>
                 </Form.Item>
-            </Form>
+            </Form> */}
         </div>
     );
 }
