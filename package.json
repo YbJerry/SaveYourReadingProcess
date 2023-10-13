@@ -1,8 +1,8 @@
 {
   "name": "save-your-reading-process",
   "displayName": "__MSG_extensionName__",
-  "version": "0.0.1",
-  "description": "__MSG_extensionName__",
+  "version": "2.0.0",
+  "description": "__MSG_extensionDescription__",
   "author": "YbJerry <YbJerry@outlook.com>",
   "scripts": {
     "dev:chrome": "plasmo dev",
