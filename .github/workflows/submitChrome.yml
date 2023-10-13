@@ -1,4 +1,4 @@
-name: "Submit to Web Store"
+name: "Submit to Chrome Web Store"
 on:
   workflow_dispatch:
 
@@ -23,9 +23,9 @@ jobs:
         with:
           node-version: 16.x
           cache: "pnpm"
-      - name: Build the extension
-        run: pnpm build
-      - name: Package the extension into a zip artifact
+      - name: Build the extension and package the extension into a zip artifact
+        run: pnpm build:chrome --zip
+      - name: 
         run: pnpm package
       - name: Browser Platform Publish
         uses: PlasmoHQ/bpp@v3
