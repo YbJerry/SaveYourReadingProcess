@@ -1,0 +1,40 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build:firefox",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build:firefox",
+			"detail": "plasmo build --target=firefox-mv2"
+		},
+		{
+			"type": "npm",
+			"script": "dev:firefox",
+			"problemMatcher": [],
+			"label": "npm: dev:firefox",
+			"detail": "plasmo dev --target=firefox-mv2",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "dev:chrome",
+			"problemMatcher": [],
+			"label": "npm: dev:chrome",
+			"detail": "plasmo dev",
+			"group": "build"
+		},
+		{
+			"type": "npm",
+			"script": "build:chrome",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build:chrome",
+			"detail": "plasmo build"
+		}
+	]
+}

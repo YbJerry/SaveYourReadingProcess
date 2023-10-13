@@ -1,0 +1,43 @@
+{
+    "extensionName": {
+        "message": "保存阅读进度",
+        "description": "插件名称"
+    },
+    "extensionDescription": {
+        "message": "可以保存并自动更新您阅读进度的插件",
+        "description": "插件介绍"
+    },
+    "urlPrefix": {
+        "message": "URL前缀"
+    },
+    "url": {
+        "message": "URL"
+    },
+    "title": {
+        "message": "标题"
+    },
+    "process_title": {
+        "message": "进度标题"
+    },
+    "process_for_now": {
+        "message": "当前进度"
+    },
+    "navigate": {
+        "message": "导航"
+    },
+    "edit": {
+        "message": "编辑"
+    },
+    "delete": {
+        "message": "删除"
+    },
+    "submit": {
+        "message": "提交"
+    },
+    "confirm": {
+        "message": "确认"
+    },
+    "cancel": {
+        "message": "取消"
+    }
+}

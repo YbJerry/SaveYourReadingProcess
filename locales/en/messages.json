@@ -1,0 +1,43 @@
+{
+    "extensionName": {
+        "message": "Save your reading process",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "Save and auto-update your reading process",
+        "description": "Description of the extension."
+    },
+    "urlPrefix": {
+        "message": "URL Prefix"
+    },
+    "url": {
+        "message": "URL"
+    },
+    "title": {
+        "message": "Title"
+    },
+    "process_title": {
+        "message": "Process Title"
+    },
+    "process_for_now": {
+        "message": "Process for now"
+    },
+    "navigate": {
+        "message": "Navigate"
+    },
+    "edit": {
+        "message": "Edit"
+    },
+    "delete": {
+        "message": "Delete"
+    },
+    "submit": {
+        "message": "Submit"
+    },
+    "confirm": {
+        "message": "Confirm"
+    },
+    "cancel": {
+        "message": "Cancel"
+    }
+}

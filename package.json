@@ -1,15 +1,18 @@
 {
   "name": "save-your-reading-process",
-  "displayName": "Save your reading process",
+  "displayName": "__MSG_extensionName__",
   "version": "0.0.1",
-  "description": "A Extension can save your reading process.",
+  "description": "__MSG_extensionName__",
   "author": "YbJerry <YbJerry@outlook.com>",
   "scripts": {
-    "dev": "plasmo dev",
-    "build": "plasmo build",
+    "dev:chrome": "plasmo dev",
+    "dev:firefox": "plasmo dev --target=firefox-mv2",
+    "build:chrome": "plasmo build",
+    "build:firefox": "plasmo build --target=firefox-mv2",
     "test": "plasmo test"
   },
   "dependencies": {
+    "@plasmohq/storage": "^1.8.0",
     "plasmo": "0.83.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -20,12 +23,24 @@
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "@types/webextension-polyfill": "^0.10.4",
+    "autoprefixer": "^10.4.16",
+    "daisyui": "^3.9.2",
+    "postcss": "^8.4.31",
     "prettier": "3.0.3",
-    "typescript": "5.2.2"
+    "tailwindcss": "^3.3.3",
+    "typescript": "5.2.2",
+    "webextension-polyfill": "^0.10.0"
   },
   "manifest": {
+    "default_locale": "en",
     "host_permissions": [
       "https://*/*"
-    ]
+    ],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "saveyourreadingprocess@ybjerry.wang"
+      }
+    }
   }
 }
